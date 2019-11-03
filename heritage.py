@@ -16,10 +16,11 @@ class Vehicles():
         self.stopping = True
 
     def state(self):
-        print("Mark: {}\nModel: {}\nMoving: {}\nSpeeding_up: {}\nStopping: {}"\
-                .format(self.mark, self.model, self.moving, self.speeding_up,\
-                self.stopping))
-    
+        print("Mark: {}\nModel: {}\nMoving: {}\nSpeeding_up: {}\nStopping: {}"
+              .format(self.mark, self.model, self.moving, self.speeding_up,
+                      self.stopping))
+
+
 class Van(Vehicles):
     def load(self, loading):
         self.loading = loading
@@ -28,14 +29,19 @@ class Van(Vehicles):
         else:
             return "The van is not loaded"
 
+
 class Motorcycle(Vehicles):
     wheelie = ''
+
     def doing_wheelie(self):
         self.wheelie = "I am doing wheelie. "
+
     def state(self):
         print("Mark: {}\nModel: {}\nMoving: {}\nSpeeding_up: {}\nStopping: {}\
-                \nWheelie: {}"  .format(self.mark, self.model, self.moving, \
-                self.speeding_up, self.stopping, self.wheelie))
+              \nWheelie: {}"  .format(self.mark, self.model, self.moving,
+                                      self.speeding_up, self.stopping,
+                                      self.wheelie))
+
 
 class ElectricVehicle():
     def __init__(self):
@@ -43,9 +49,11 @@ class ElectricVehicle():
 
     def charge_power(self):
         self.charging = True
-    
+
+
 class ElectricBicycle(ElectricVehicle, Vehicles):
     pass
+
 
 my_Motorcycle = Motorcycle("Honda", "CBR")
 my_Motorcycle.doing_wheelie()
@@ -55,5 +63,3 @@ my_van = Van("Renault", "Kangoo")
 my_van.start()
 my_van.state()
 my_van.load(True)
-
-my_bicycle = ElectricVehicle()
